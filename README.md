@@ -4,9 +4,9 @@ Scrapes (or at least attempts to) all cards from [HKK's card search site](https:
 
 ## Warning
 
-The script is probably produces a heavy load on their backend, so it shouldn't be run regularly.
+The script probably produces a heavy load on their backend, so it shouldn't be run regularly.
 
-If you only need the results, please download it from the [releases](https://github.com/leventea/hkk-scraper/releases)
+If you only need the results, please download it from the [releases](https://github.com/leventea/hkk-scraper/releases) tab.
 
 ## Usage
 
@@ -16,14 +16,14 @@ After installing the required packages using `npm i` (or any alternative), run t
 npm start > output.json 
 ```
 
-The script prints out the results to STDOUT, this should be piped into a file.
+The results are printed to STDOUT, which should be piped into a file.
 Logging is done on STDERR, to avoid interfering with the resulting JSON.
 
 ## Result Structure
  
-This is mostly identical to the results returned by their backend, but in a single JSON object.
+This is mostly identical to the results returned by the backend, but in a single JSON object.
 The constants object is fetched from the `/cardConstants` endpoint.
-The cards are fetched year-by-year then flattened into a single array.
+The cards are fetched year-by-year, then flattened into a single array.
 
 ```ts
 type Result = {
@@ -66,7 +66,7 @@ type Card = {
 
 # Prettify
 
-The `prettify.ts` script attempts to fix most issues with the unmodified JSON objects:
+The `prettify.ts` script attempts to fix most issues with the unmodified JSON results:
 - Ability to inline editions
 - Remove redundant colors from cards
 - Strip whitespace from the end of card descriptions
