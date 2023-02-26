@@ -60,4 +60,4 @@ type Card = {
 ## Known issues
 
 - The colors on the cards often include "Nincs" (none), along with the card's actual color
-- The object keys on most objects in the constants often match their index (N - 1), with some exceptions (i.e. the illustrator object has gaps in its keys) 
+- Keys on most objects (with type `IdStringPairs`) often match their index (N - 1), with some exceptions (i.e. the illustrator object has gaps in its keys) 
