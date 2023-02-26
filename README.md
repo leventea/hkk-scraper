@@ -77,6 +77,7 @@ The `prettify.ts` script attempts to fix most issues with the unmodified JSON re
 ``` shell
 cat previous_output.json | npm run prettify -ec > prettified_output.json
 # where previous_output.json is the result of running `npm run`
+# or the unmodified output.json downloaded from GitHub releases 
 ```
 
 ## CLI Options
