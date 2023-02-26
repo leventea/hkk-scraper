@@ -35,9 +35,11 @@ async function main() {
   let results: Card[] = [];
   cardArrays.forEach((cards, i) => {
     if (cards == null) {
-      console.error(`null returned at year ${min + i}`);
+      console.error(`null returned at year ${i + min}`);
       return;
     }
+
+    console.error(`year ${i + min}: scraped ${cards.length} cards`);
 
     results.push(...cards);
   })
@@ -47,7 +49,7 @@ async function main() {
     cards: results
   }
 
-  console.error(results.length);
+  console.error(`scraped ${results.length} cards in total`);
   console.log(JSON.stringify(output));
 }
 
