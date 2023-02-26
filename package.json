@@ -1,0 +1,20 @@
+{
+  "name": "hkk-scraper",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-node-dev": "^2.0.0"
+  },
+  "dependencies": {
+    "@sinclair/typebox": "^0.25.24",
+    "jsdom": "^21.1.0",
+    "ts-node": "^10.9.1"
+  }
+}
