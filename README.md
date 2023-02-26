@@ -15,7 +15,7 @@ npm start > output.json
 ```
 
 The script prints out the results to STDOUT, this should be piped into a file.
-Logging is printed to STDERR, to avoid interfering with the resulting JSON.
+Logging is done on STDERR, to avoid interfering with the resulting JSON.
 
 ## Result Structure
  
@@ -61,3 +61,37 @@ type Card = {
 
 - The colors on the cards often include "Nincs" (none), along with the card's actual color
 - Keys on most objects (with type `IdStringPairs`) often match their index (N - 1), with some exceptions (i.e. the illustrator object has gaps in its keys) 
+
+# Prettify
+
+The `prettify.ts` script attempts to fix most issues with the unmodified JSON objects:
+- Ability to inline editions
+- Remove redundant colors from cards
+- Strip whitespace from the end of card descriptions
+- Make edition field names consistent by translating them to english 
+
+## Usage
+
+``` shell
+cat previous_output.json | npm run prettify -ec > prettified_output.json
+# where previous_output.json is the result of running `npm run`
+```
+
+## CLI Options
+
+```
+--inline-editions, -e
+  Replace edition IDs with the respective edition object
+  
+--include-constants, -c
+  Include the (unmodified) card constants
+  
+--no-fix-editions
+  Don't translate edition keys
+  
+--no-fix-colors
+  Don't remove redundant colors
+  
+--no-fix-text
+  Don't strip whitespace from the end of card descriptions
+```

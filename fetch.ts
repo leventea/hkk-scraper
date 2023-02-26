@@ -1,9 +1,8 @@
+import { apiBaseUrl } from './constants';
 import type { Card } from './types';
 
-const baseUrl = 'https://lapkereso.hkk.hu/api/api.php?lapkereso';
-
 export async function fetchJson<T>(endpoint: string, opts?: RequestInit): Promise<T|null> {
-  const res = await fetch(`${baseUrl}/${endpoint}`, opts);
+  const res = await fetch(`${apiBaseUrl}/${endpoint}`, opts);
 
   if (!res.ok)
     return null;

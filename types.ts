@@ -7,25 +7,23 @@ export type Edition = {
   id: number,
   nev: string,
   tipus: string,
-  paklibaRakhato: string,
+  paklibaRakhato: boolean,
   megjelent: boolean,
   megjelenesDatum: string
 }
 
 export type IdStringPair = {
-  [ key: number ]: string
+  [ key: string ]: string
 }
 
-export type IdStringPairs = Array<IdStringPair>
-
 export type CardConstants = {
-  colors: IdStringPairs,
-  mainTypes: IdStringPairs,
-  subTypes: IdStringPairs,
-  otherTypes: IdStringPairs,
-  creatureSubType: IdStringPairs,
+  colors: IdStringPair,
+  mainTypes: IdStringPair,
+  subTypes: IdStringPair,
+  otherTypes: IdStringPair,
+  creatureSubTypes: Array<number>,
   editions: Array<Edition>,
-  illustrators: IdStringPairs
+  illustrators: IdStringPair
 }
 
 export type Card = {
@@ -37,4 +35,31 @@ export type Card = {
   color: Array<string>,
   commonness: string, // rarity
   editions: Array<number>
+}
+
+// Prettified versions
+
+export type PrettyResults = {
+  constants?: CardConstants,
+  cards: Array<PrettyCard>
+}
+
+export type PrettyEdition = {
+  id: number,
+  type: string,
+  allowedInDeck: boolean,
+  released: boolean,
+  releaseDate: string
+}
+
+export type PrettyCard = {
+  id: number,
+  name: string,
+  text: string,
+  link: string,
+  type: Array<string>,
+  color: Array<string>,
+  editions: Array<number | PrettyEdition>,
+  rarity: string,
+  url: string
 }
