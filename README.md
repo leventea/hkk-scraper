@@ -95,3 +95,32 @@ cat previous_output.json | npm run prettify -ec > prettified_output.json
 --no-fix-text
   Don't strip whitespace from the end of card descriptions
 ```
+
+## Prettified result structure
+
+``` ts
+export type PrettyResults = {
+  constants?: CardConstants, // undefined if --include-constants is not set
+  cards: Array<PrettyCard>
+}
+
+export type PrettyEdition = {
+  id: number,
+  type: string,
+  allowedInDeck: boolean,
+  released: boolean,
+  releaseDate: string
+}
+
+export type PrettyCard = {
+  id: number,
+  name: string,
+  text: string,
+  link: string,
+  type: Array<string>,
+  color: Array<string>,
+  editions: Array<number | PrettyEdition>, // number array if --no-fix-editions is set
+  rarity: string,
+  url: string
+}
+```
