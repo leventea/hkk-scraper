@@ -6,6 +6,8 @@ Scrapes (or at least attempts to) all cards from [HKK's card search site](https:
 
 The script is probably produces a heavy load on their backend, so it shouldn't be run regularly.
 
+If you only need the results, please download it from the [releases](https://github.com/leventea/hkk-scraper/releases)
+
 ## Usage
 
 After installing the required packages using `npm i` (or any alternative), run the following command:
