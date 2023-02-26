@@ -1,3 +1,8 @@
+export type Result = {
+  constants: CardConstants,
+  cards: Array<Card>
+}
+
 export type Edition = {
   id: number,
   nev: string,

@@ -1,5 +1,5 @@
 import { fetchJson, fetchYear } from './fetch';
-import type { CardConstants, Edition, Card } from './types';
+import type { CardConstants, Edition, Card, Result } from './types';
 
 function getYearRange(editions: Edition[]): [number, number] {
   // cant use the Date class for this, some day fields (2003-01-xx) are 00
@@ -24,6 +24,11 @@ function getYearRange(editions: Edition[]): [number, number] {
 async function main() {
   const constants = await fetchJson<CardConstants>('cardConstants');
 
+  if (constants == null) {
+    console.error('failed to fetch card constants');
+    process.exit(1);
+  }
+
   const [min, max] = getYearRange(constants!.editions);
 
   // list of all years to fetch
@@ -44,7 +49,7 @@ async function main() {
     results.push(...cards);
   })
 
-  const output = {
+  const output: Result = {
     constants,
     cards: results
   }
